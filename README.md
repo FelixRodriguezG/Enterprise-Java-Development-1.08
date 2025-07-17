@@ -1,36 +1,49 @@
 # 📦 Enterprise-Java-Development-1.08
 
-Bienvenido al repositorio del ejercicio **Enterprise Java Development 1.08**, parte del módulo de Java del Bootcamp de Ironhack. Este lab está compuesto por varios mini-proyectos enfocados en consolidar los conocimientos de Programación Orientada a Objetos (POO), manipulación de datos con `BigDecimal`, uso de clases abstractas, herencia, e implementación de interfaces.
+Bienvenido al repositorio del ejercicio **Enterprise Java Development 1.08**, parte del módulo de Java del Bootcamp de Ironhack. Este proyecto contiene mini-aplicaciones para practicar Programación Orientada a Objetos (POO), uso de `BigDecimal`, herencia, clases abstractas e interfaces.
 
+---
 
 ## 📁 Estructura del proyecto
 
-```markdown
-📦 src/
- ┣ 📁 main/
- ┃ ┣ 📁 java/
- ┃ ┃ ┣ 📁 carinventory/
- ┃ ┃ ┃ ┣ Car.java
- ┃ ┃ ┃ ┣ Sedan.java
- ┃ ┃ ┃ ┣ UtilityVehicle.java
- ┃ ┃ ┃ ┗ Truck.java
- ┃ ┃ ┣ BigDecimalUtils.java
- ┃ ┃ ┗ 📁 videostreaming/
- ┃ ┃   ┣ Video.java
- ┃ ┃   ┣ Movie.java
- ┃ ┃   ┗ Series.java
- ┃ ┗ 📁 resources/
- ┣ 📁 test/
- ┃ ┣ 📁 java/
- ┃ ┗ 📁 resources/
+```plaintext
+src/
+ ┣ main/
+ ┃ ┣ java/
+ ┃ ┃ ┣ car/
+ ┃ ┃ ┃ ┣ inventory/
+ ┃ ┃ ┃ ┃ ┣ system/
+ ┃ ┃ ┃ ┃ ┃ ┣ Main.java
+ ┃ ┃ ┃ ┃ ┃ ┣ model/
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ Car.java
+ ┃ ┃ ┃ ┃ ┃ ┗ factory/
+ ┃ ┃ ┃ ┃ ┃   ┣ Sedan.java
+ ┃ ┃ ┃ ┃ ┃   ┣ Truck.java
+ ┃ ┃ ┃ ┃ ┃   ┗ UtilityVehicle.java
+ ┃ ┃ ┣ video/
+ ┃ ┃ ┃ ┣ streaming/
+ ┃ ┃ ┃ ┃ ┣ service/
+ ┃ ┃ ┃ ┃ ┃ ┣ Main.java
+ ┃ ┃ ┃ ┃ ┃ ┣ content/
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ Movie.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ TvSeries.java
+ ┃ ┃ ┃ ┃ ┃ ┗ model/
+ ┃ ┃ ┃ ┃ ┃   ┗ Video.java
+ ┃ ┃ ┣ utils/
+ ┃ ┃ ┃ ┗ BigDecimalUtils.java
+ ┃ ┗ resources/
+ ┣ test/
+ ┃ ┣ java/
+ ┃ ┗ resources/
  ┣ pom.xml
  ┗ README.md
 ```
 
+---
 
-## 🧮 BigDecimal Operations
+## 🧮 Utilidades con BigDecimal
 
-### ✅ Requisitos:
+### Funcionalidades:
 
 1. **Redondeo a centésimas:**  
    Método que recibe un `BigDecimal` y retorna un `double` redondeado a dos decimales.  
@@ -40,31 +53,58 @@ Bienvenido al repositorio del ejercicio **Enterprise Java Development 1.08**, pa
    Método que invierte el signo del número y lo redondea a una décima.  
    Ejemplo: `1.2345` → `-1.2`, `-45.67` → `45.7`
 
-📄 **Archivo:** `BigDecimalUtils.java`
+📄 **Archivo:** `src/main/java/utils/BigDecimalUtils.java`
 
 ---
 
-## 🚗 Car Inventory System
+## 🚗 Sistema de Inventario de Vehículos
 
-Se modela un sistema de inventario de vehículos usando clases abstractas y herencia.
+Modela un sistema de inventario usando clases abstractas y herencia.
 
-### 🔧 Clase abstracta: `Car`
-- Propiedades: `vinNumber`, `make`, `model`, `mileage`
-- Método: `getInfo()` retorna información legible.
+- **Clase abstracta:** `Car`  
+  Propiedades: `vinNumber`, `make`, `model`, `mileage`  
+  Método: `getInfo()`
 
-### 🚘 Subclases:
-- `Sedan`
-- `UtilityVehicle` → propiedad extra: `fourWheelDrive` (boolean)
-- `Truck` → propiedad extra: `towingCapacity` (double)
+- **Subclases:**  
+  - `Sedan`
+  - `UtilityVehicle` (propiedad extra: `fourWheelDrive`)
+  - `Truck` (propiedad extra: `towingCapacity`)
 
-📄 **Paquete:** `carinventory`
+📄 **Ubicación:**  
+`src/main/java/car/inventory/system/model/Car.java`  
+`src/main/java/car/inventory/system/factory/`
 
 ---
 
-## 🎬 Video Streaming Service
+## 🎬 Servicio de Streaming de Video
 
-Sistema básico de contenido en streaming que distingue entre películas y series.
+Sistema básico para gestionar películas y series.
 
-### 🔧 Clase abstracta: `Video`
-- Propiedades: `title`, `duration`
-- Método: `
+- **Clase base:** `Video`  
+  Propiedades: `title`, `duration`  
+  Método: `getInfo()`
+
+- **Subclases:**  
+  - `Movie` (propiedad extra: `rating`)
+  - `TvSeries` (propiedad extra: `episodes`)
+
+📄 **Ubicación:**  
+`src/main/java/video/streaming/service/model/Video.java`  
+`src/main/java/video/streaming/service/content/`
+
+---
+
+## ▶️ Ejecución
+
+- **Car Inventory:**  
+  Ejecutar `car.inventory.system.Main` para ver ejemplos de uso y manipulación de vehículos.
+
+- **Video Streaming:**  
+  Ejecutar `video.streaming.service.Main` para ver ejemplos de películas y series.
+
+---
+
+## 📝 Notas
+
+- El proyecto sigue una estructura modular y separa claramente los dominios de cada mini-aplicación.
+- Se recomienda revisar cada clase para entender la implementación de la herencia y el uso de métodos sobrescritos.
