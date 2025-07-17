@@ -5,6 +5,28 @@ Bienvenido al repositorio del ejercicio **Enterprise Java Development 1.08**, pa
 
 ## 📁 Estructura del proyecto
 
+```markdown
+📦 src/
+ ┣ 📁 main/
+ ┃ ┣ 📁 java/
+ ┃ ┃ ┣ 📁 carinventory/
+ ┃ ┃ ┃ ┣ Car.java
+ ┃ ┃ ┃ ┣ Sedan.java
+ ┃ ┃ ┃ ┣ UtilityVehicle.java
+ ┃ ┃ ┃ ┗ Truck.java
+ ┃ ┃ ┣ BigDecimalUtils.java
+ ┃ ┃ ┗ 📁 videostreaming/
+ ┃ ┃   ┣ Video.java
+ ┃ ┃   ┣ Movie.java
+ ┃ ┃   ┗ Series.java
+ ┃ ┗ 📁 resources/
+ ┣ 📁 test/
+ ┃ ┣ 📁 java/
+ ┃ ┗ 📁 resources/
+ ┣ pom.xml
+ ┗ README.md
+```
+
 
 ## 🧮 BigDecimal Operations
 
