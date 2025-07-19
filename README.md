@@ -2,45 +2,6 @@
 
 Bienvenido al repositorio del ejercicio **Enterprise Java Development 1.08**, parte del módulo de Java del Bootcamp de Ironhack. Este proyecto contiene mini-aplicaciones para practicar Programación Orientada a Objetos (POO), uso de `BigDecimal`, herencia, clases abstractas e interfaces.
 
----
-
-## 📁 Estructura del proyecto
-
-```plaintext
-src/
- ┣ main/
- ┃ ┣ java/
- ┃ ┃ ┣ car/
- ┃ ┃ ┃ ┣ inventory/
- ┃ ┃ ┃ ┃ ┣ system/
- ┃ ┃ ┃ ┃ ┃ ┣ Main.java
- ┃ ┃ ┃ ┃ ┃ ┣ model/
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ Car.java
- ┃ ┃ ┃ ┃ ┃ ┗ factory/
- ┃ ┃ ┃ ┃ ┃   ┣ Sedan.java
- ┃ ┃ ┃ ┃ ┃   ┣ Truck.java
- ┃ ┃ ┃ ┃ ┃   ┗ UtilityVehicle.java
- ┃ ┃ ┣ video/
- ┃ ┃ ┃ ┣ streaming/
- ┃ ┃ ┃ ┃ ┣ service/
- ┃ ┃ ┃ ┃ ┃ ┣ Main.java
- ┃ ┃ ┃ ┃ ┃ ┣ content/
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ Movie.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ TvSeries.java
- ┃ ┃ ┃ ┃ ┃ ┗ model/
- ┃ ┃ ┃ ┃ ┃   ┗ Video.java
- ┃ ┃ ┣ utils/
- ┃ ┃ ┃ ┗ BigDecimalUtils.java
- ┃ ┗ resources/
- ┣ test/
- ┃ ┣ java/
- ┃ ┗ resources/
- ┣ pom.xml
- ┗ README.md
-```
-
----
-
 ## 🧮 Utilidades con BigDecimal
 
 ### Funcionalidades:
