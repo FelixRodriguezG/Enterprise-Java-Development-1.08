@@ -26,15 +26,22 @@ public class Main {
             default -> System.out.println("Invalid option.");
         }
             System.out.println("\n---------------------------------------------------------");
-            System.out.print("Do you want to continue? (y/n): ");
-            String response = scanner.next().trim().toLowerCase();
-            if (response.equals("n")) {
-                System.out.println("Exiting program.");
-                continueProgram = false;
-            } else if (!response.equals("y")) {
-                System.out.println("Invalid response. Exiting program.");
-                continueProgram = false;
+            char response;
+            do{
+                System.out.print("Do you want to continue? (y/n): ");
+                response = scanner.next().toLowerCase().charAt(0);
+                if (response != 'y' && response != 'n') {
+                    System.out.print("Invalid input. Please enter 'y' or 'n': ");
+                }
+            } while (response != 'y' && response != 'n');
+            switch (response) {
+                case 'y' -> System.out.println("Continuing program...");
+                case 'n' -> {
+                    System.out.println("Exiting program.");
+                    continueProgram = false;
+                }
             }
+
 
         } while(continueProgram);
 
