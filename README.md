@@ -1,71 +1,44 @@
-# 📦 Enterprise-Java-Development-1.08
+# IntArrayList vs IntVector
 
-Bienvenido al repositorio del ejercicio **Enterprise Java Development 1.08**, parte del módulo de Java del Bootcamp de Ironhack. Este proyecto contiene mini-aplicaciones para practicar Programación Orientada a Objetos (POO), uso de `BigDecimal`, herencia, clases abstractas e interfaces.
+## 📚 Descripción d
+La interfaz intList define los métodos básicos que deben implementar todas las listas de enteros: add(int number) y get(int id).
+Esto permite que cualquier clase que implemente la interfaz pueda ser utilizada de forma intercambiable, garantizando que tendrá esas operaciones esenciales.
 
-## 🧮 Utilidades con BigDecimal
+Las clases IntArrayList y IntVector heredan de AbstractIntList, que a su vez implementa la interfaz intList.
+Así, ambas clases cumplen el contrato de la interfaz y pueden usarse donde se requiera una lista de enteros, pero cada una gestiona el crecimiento del arreglo interno de manera diferente según su implementación de resize().
 
-### Funcionalidades:
+Resumen de la estructura:
+intList (interfaz): define los métodos esenciales.
+AbstractIntList (clase abstracta): implementa la interfaz y provee la lógica común.
+IntArrayList y IntVector: extienden la clase abstracta y personalizan el método de redimensionamiento
 
-1. **Redondeo a centésimas:**  
-   Método que recibe un `BigDecimal` y retorna un `double` redondeado a dos decimales.  
-   Ejemplo: `4.2545` → `4.25`
+## 🚀 Características
+- `IntArrayList`: El método resize() aumenta el tamaño del arreglo interno en un 50% cada vez que se llena. Esto permite ahorrar memoria cuando el crecimiento de la lista es gradual.
+- `IntVector`: El método resize() duplica el tamaño del arreglo interno cada vez que se llena. Esto mejora el rendimiento en inserciones masivas, ya que reduce la cantidad de redimensionamientos necesarios.
 
-2. **Cambio de signo y redondeo a décimas:**  
-   Método que invierte el signo del número y lo redondea a una décima.  
-   Ejemplo: `1.2345` → `-1.2`, `-45.67` → `45.7`
+## 🛠️ Cuando usar cada clase
+Usa `IntArrayList` si buscas eficiencia en memoria y el crecimiento es moderado.
+Usa `IntVector` si necesitas mejor rendimiento en inserciones frecuentes y el tamaño puede crecer mucho.
 
-📄 **Archivo:** `src/main/java/utils/BigDecimalUtils.java`
+Ejemplo 1: Uso de `IntArrayList` (crecimiento moderado, ahorro de memoria)
+```Java
+IntArrayList lista = new IntArrayList();
+for (int i = 0; i < 20; i++) {
+lista.add(i);
+}
+System.out.println("Tamaño interno de IntArrayList: " + lista.getData().length);
+System.out.println("Elementos: " + lista.size());
+```
+_Nota: Ideal cuando el crecimiento es gradual y se busca eficiencia en memoria._
 
----
+Ejemplo 2: Uso de IntVector (crecimiento rápido, mejor rendimiento en inserciones masivas)
 
-## 🚗 Sistema de Inventario de Vehículos
-
-Modela un sistema de inventario usando clases abstractas y herencia.
-
-- **Clase abstracta:** `Car`  
-  Propiedades: `vinNumber`, `make`, `model`, `mileage`  
-  Método: `getInfo()`
-
-- **Subclases:**  
-  - `Sedan`
-  - `UtilityVehicle` (propiedad extra: `fourWheelDrive`)
-  - `Truck` (propiedad extra: `towingCapacity`)
-
-📄 **Ubicación:**  
-`src/main/java/car/inventory/system/model/Car.java`  
-`src/main/java/car/inventory/system/factory/`
-
----
-
-## 🎬 Servicio de Streaming de Video
-
-Sistema básico para gestionar películas y series.
-
-- **Clase base:** `Video`  
-  Propiedades: `title`, `duration`  
-  Método: `getInfo()`
-
-- **Subclases:**  
-  - `Movie` (propiedad extra: `rating`)
-  - `TvSeries` (propiedad extra: `episodes`)
-
-📄 **Ubicación:**  
-`src/main/java/video/streaming/service/model/Video.java`  
-`src/main/java/video/streaming/service/content/`
-
----
-
-## ▶️ Ejecución
-
-- **Car Inventory:**  
-  Ejecutar `car.inventory.system.Main` para ver ejemplos de uso y manipulación de vehículos.
-
-- **Video Streaming:**  
-  Ejecutar `video.streaming.service.Main` para ver ejemplos de películas y series.
-
----
-
-## 📝 Notas
-
-- El proyecto sigue una estructura modular y separa claramente los dominios de cada mini-aplicación.
-- Se recomienda revisar cada clase para entender la implementación de la herencia y el uso de métodos sobrescritos.
+```Java
+IntVector vector = new IntVector();
+for (int i = 0; i < 40; i++) {
+    vector.add(i);
+}
+System.out.println("Tamaño interno de IntVector: " + vector.getData().length);
+System.out.println("Elementos: " + vector.size());
+```
+_Nota: Ideal cuando se espera que la lista crezca mucho o muy rápido._
